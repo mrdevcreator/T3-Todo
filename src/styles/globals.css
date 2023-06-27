@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .blinking-cursor {
+    animation: blink 1s infinite;
+  }
+
+  .blinking-star {
+    animation: blink 3s infinite;
+  }
+}
