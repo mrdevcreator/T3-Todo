@@ -42,7 +42,6 @@ const Navbar: React.FC = () => {
             variant="h6"
             component="div"
             sx={{ flexGrow: 1 }}
-            //className="text-white"
             className="rounded-lg border-2 border-b-4 border-r-4 border-black/60 px-2 py-1 text-xl transition-all hover:-translate-y-[2px]"
           >
             {getUserName()}
