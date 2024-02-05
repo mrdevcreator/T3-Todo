@@ -1,12 +1,10 @@
 import { useSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
-import { api } from "~/utils/api";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 export default function Home() {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
   const { data: sessionData } = useSession();
   const router = useRouter();
 
@@ -31,16 +29,10 @@ export default function Home() {
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#1111] to-[#15162c]">
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
-          <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-            Create <span className="text-[hsl(280,100%,70%)]">Your</span> Todo
+          <h1 className="rounded-lg border-2 border-b-4 border-r-4 border-black px-2 py-1 text-5xl font-bold transition-all hover:-translate-y-[2px]">
+            Create <span className="text-[hsl(234,87%,71%)]">Your</span> Todo
           </h1>
-
-          <div className="flex flex-col items-center gap-2">
-            <p className="text-2xl text-white">
-              {hello.data ? hello.data.greeting : "Loading tRPC query..."}
-            </p>
-            <AuthShowcase />
-          </div>
+          <AuthShowcase />
         </div>
       </main>
     </>
@@ -50,14 +42,14 @@ export default function Home() {
 function AuthShowcase() {
   const { data: sessionData } = useSession();
   return (
-    <div className="flex w-96 flex-col rounded-md bg-white/20 p-6 shadow-lg">
+    <div className="flex w-96 flex-col p-6 ">
       {!sessionData && (
         <div className="flex flex-col items-center justify-center gap-6 rounded-lg bg-gray-700 p-6">
           {sessionData ? (
             " "
           ) : (
             <div className="flex items-center justify-center gap-4">
-              <p className=" text-center text-2xl text-white">
+              <p className="text-center text-2xl text-white">
                 Don&#39;t have an account!!! Sign in with discord or Create a
                 new account
                 <Link href="/SignUp">
