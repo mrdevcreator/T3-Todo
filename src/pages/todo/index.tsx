@@ -6,9 +6,7 @@ import { api } from "~/utils/api";
 
 const TodoPage: React.FC = () => {
   const { data: todo = [] } = api.newTodo.all.useQuery();
-  console.log(todo);
   const { data: session } = useSession();
-  //absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400
   return (
     <div className="flex h-screen  justify-center bg-gradient-to-b from-[#1111] to-[#15162c]">
       {session && (

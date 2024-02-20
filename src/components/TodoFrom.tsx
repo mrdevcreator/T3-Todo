@@ -25,7 +25,6 @@ const TodoForm: React.FC = () => {
       dueDate,
       priority,
     };
-    console.log(newTodo);
     void mutateAsync({
       taskname,
       dueDate: newTodo.dueDate,

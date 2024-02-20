@@ -87,10 +87,6 @@ const TodoTableRow: React.FC<TodoTableRowProps> = ({ todo, todoIndex }) => {
       taskname: editedTaskName,
       dueDate: editedDueDate,
     };
-    console.log(updatedTodo.id);
-    console.log("Updated Task Name:", updatedTodo.taskname);
-    console.log("Updated Due Date:", updatedTodo.dueDate);
-    console.log(isTouched);
     void mutateasync4({
       id: updatedTodo.id,
       taskname: updatedTodo.taskname,
@@ -125,7 +121,10 @@ const TodoTableRow: React.FC<TodoTableRowProps> = ({ todo, todoIndex }) => {
         {isEditing ? (
           <TextField value={editedTaskName} onChange={handleTextInput} />
         ) : todo.done ? (
-          <span className="line-through">{todo.taskname}</span>
+          <span className="relative text-black line-through">
+            {todo.taskname}
+            <span className="absolute left-0 top-1/2 h-0.5 w-full -translate-y-1/2 transform bg-red-500"></span>
+          </span>
         ) : (
           todo.taskname
         )}

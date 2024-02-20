@@ -38,7 +38,6 @@ export const todoRouter = createTRPCRouter({
           },
         },
       });
-      console.log(ctx.session.user.id);
       return newTodo;
     }),
   delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
